@@ -30,15 +30,20 @@ File { backup => false }
 
 $test_top_scope = "Top Scope"
 
-node /^andrew1443c/ { 
-  notify { "This is a node definition using regex!!!": }
-}
+#node /^andrew1443c/ { 
+ #notify { "This is a node definition using regex!!!": }
+#}
 
 node 'andrew1442c.mylabserver' {
   notify { 'This matches the Apache Vhosts I a trying to configure!!!': }
   include profile::apache 
   include profile::base 
 }
+
+node default {
+
+}
+
 
 #node 'andrew1441c.mylabserver.com' {
  # include pe_repo::platform::el_6_x86_64
