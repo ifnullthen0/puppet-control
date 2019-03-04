@@ -12,7 +12,6 @@
 ## Active Configurations ##
 
 # Disable filebucket by default for all File resources:
-#https://docs.puppet.com/pe/2015.3/release_notes.html#filebucket-resource-no-longer-created-by-default
 File { backup => false }
 
 # DEFAULT NODE
@@ -25,8 +24,23 @@ File { backup => false }
 # will be included in every node's catalog, *in addition* to any classes
 # specified in the console for that node.
 
-node default {
-  # This is where you can declare classes for all nodes.
-  # Example:
-  #   class { 'my_class': }
+#node 'andrew1443c.mylabserver.com' {
+ # include ntp 
+#}
+
+$test_top_scope = "Top Scope"
+
+node /^andrew1443c/ { 
+  notify { "This is a node definition using regex!!!": }
 }
+
+node 'andrew1442c.mylabserver' {
+  notify { 'This matches the Apache Vhosts I a trying to configure!!!': }
+  include profile::apache 
+  include profile::base 
+}
+
+#node 'andrew1441c.mylabserver.com' {
+ # include pe_repo::platform::el_6_x86_64
+ #include pe_repo::platform::ubuntu_1204_amd64 
+#} 
