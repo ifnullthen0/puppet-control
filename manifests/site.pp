@@ -41,7 +41,7 @@ node 'andrew1442c.mylabserver' {
 }
 
 node default {
-
+  hiera_include('classes')
 }
 
 
