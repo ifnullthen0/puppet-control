@@ -35,9 +35,9 @@ $test_top_scope = "Top Scope"
 #}
 
 node 'andrew1442c.mylabserver' {
-  notify { 'This matches the Apache Vhosts I a trying to configure!!!': }
-  include profile::apache 
-  include profile::base 
+  notify { 'test-message-for-tthomsen2': 
+    message => 'this is tthomsen2 using a node def'
+  }
 }
 
 node default {
